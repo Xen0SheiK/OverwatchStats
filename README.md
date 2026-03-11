@@ -1,7 +1,5 @@
 # My Overwatch Stats Tracker
 
-![Overwatch Stats](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/badge.json&style=for-the-badge&logo=overwatch&logoColor=white)
-
 ![Current Rank](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/badge.json)
 
 ### Rank History
