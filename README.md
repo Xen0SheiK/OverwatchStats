@@ -5,6 +5,6 @@
 ### Rank History
 ![The Climb](./rank_history.png)
 
-[![BattleTag](https://img.shields.io/badge/BattleTag-YourName%231234-blue?style=social&logo=battle.net)](https://overwatch.blizzard.com/en-us/career/pc/YourName-1234/)
+[![BattleTag](https://img.shields.io/badge/PH4M#11104-blue?style=social&logo=battle.net)](https://overwatch.blizzard.com/en-us/career/pc/PH4M#11104/)
 
 *Automated daily using Python and GitHub Actions.*
