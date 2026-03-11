@@ -10,6 +10,23 @@ HISTORY_FILE = 'history.json'
 BADGE_FILE = 'badge.json'
 CHART_FILE = 'rank_history.png'
 
+# --- Other functions like rank_to_numeric are up here ---
+
+def update_badge_json(current_rank, trend, color, label):
+    """Generates the badge.json file with Shields.io schema."""
+    badge_data = {
+        "schemaVersion": 1,
+        "label": label,
+        "message": f"{current_rank}{trend}",
+        "color": color,
+        "labelColor": "333333",
+        "style": "for-the-badge"
+    }
+    
+    with open('badge.json', 'w') as f:
+        json.dump(badge_data, f, indent=4)
+    print("Badge.json successfully updated.")
+
 def rank_to_numeric(rank_string):
     """Converts 'Gold 3' to a number like 1700 for graphing."""
     if not rank_string or "Unranked" in rank_string:
