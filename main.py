@@ -14,6 +14,10 @@ def rank_to_numeric(rank_string):
     if not rank_string or "Unranked" in rank_string: return 0
     tier_map = {"Bronze": 500, "Silver": 1000, "Gold": 1500, "Platinum": 2000, 
                 "Diamond": 2500, "Master": 3000, "Grandmaster": 3500, "Champion": 4000}
+    display_rank = current_rank if current_rank else "Placements"
+
+# Use display_rank for the badge message
+"message": f"{display_rank}{trend}"
     try:
         tier, division = rank_string.split()
         return tier_map.get(tier, 0) + ((5 - int(division)) * 100)
