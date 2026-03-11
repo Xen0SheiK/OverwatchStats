@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "label": "Rank: Unranked",
-    "message": "Unranked =",
-    "color": "#333333",
+    "message": "Unranked ❎",
+    "color": "WHITE",
     "style": "for-the-badge"
 }
