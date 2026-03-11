@@ -42,6 +42,21 @@ def get_custom_styles(rank_string, win_rate):
         
     return color, label
 
+def update_badge(current_rank):
+    # Get the dynamic color
+    badge_color = get_tier_color(current_rank)
+    
+    badge_data = {
+        "schemaVersion": 1,
+        "label": "Current Rank",
+        "message": current_rank,
+        "color": badge_color,
+        "style": "for-the-badge" # Makes it look like a large button
+    }
+    
+    with open('badge.json', 'w') as f:
+        json.dump(badge_data, f, indent=4)
+
 # Inside your run_tracker() function:
 color, label = get_custom_styles(current_rank, current_win_rate)
 
