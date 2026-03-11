@@ -25,6 +25,34 @@ def get_rank_color(rank_string):
     if "Diamond" in rank_string: return "b9f2ff"
     return "orange"
 
+def get_custom_styles(rank_string, win_rate):
+    # Color based on Rank
+    if "Champion" in rank_string: color = "db00ff" # Neon Purple
+    elif "Grandmaster" in rank_string: color = "ff0000" # Red
+    elif "Master" in rank_string: color = "ffa500" # Orange
+    elif "Diamond" in rank_string: color = "b9f2ff" # Diamond Blue
+    elif "Platinum" in rank_string: color = "95e1d3" # Teal
+    else: color = "bcbcbc" # Grey for lower ranks
+    
+    # Label based on Win Rate
+    if win_rate > 55:
+        label = "🔥 OW Win Rate"
+    else:
+        label = "OW Rank"
+        
+    return color, label
+
+# Inside your run_tracker() function:
+color, label = get_custom_styles(current_rank, current_win_rate)
+
+badge_data = {
+    "schemaVersion": 1,
+    "label": label,
+    "message": f"{current_rank} ({current_win_rate}%)",
+    "color": color,
+    "style": "for-the-badge" # Makes the badge larger and more modern
+}
+
 def run_tracker():
     if not BATTLE_TAG: return
     
