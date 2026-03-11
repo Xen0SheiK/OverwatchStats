@@ -17,7 +17,7 @@ def rank_to_numeric(rank_string):
     display_rank = current_rank if current_rank else "Placements"
 
 # Use display_rank for the badge message
-"message": f"{display_rank}{trend}"
+def "message": f"{display_rank}{trend}"
     try:
         tier, division = rank_string.split()
         return tier_map.get(tier, 0) + ((5 - int(division)) * 100)
