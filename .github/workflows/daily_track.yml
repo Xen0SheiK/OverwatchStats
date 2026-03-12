@@ -2,29 +2,40 @@ name: Overwatch Auto-Tracker
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+    - cron: '0 0 * * *'  # Runs every day at midnight UTC
+  workflow_dispatch:      # Allows you to click "Run Workflow" manually
+  push:
+    branches: [ main ]    # Runs every time you push code to the main branch
+
+permissions:
+  contents: write         # CRITICAL: Allows the bot to save badge.json and history.json
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests matplotlib
+
       - name: Run Tracker
         env:
           BATTLE_TAG: ${{ secrets.BATTLE_TAG }}
         run: python main.py
-      - name: Commit Files
+
+      - name: Commit and Push Changes
         run: |
-          git config --global user.name "Tracker Bot"
-          git config --global user.email "bot@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add history.json badge.json rank_history.png
-          git commit -m "Update Stats: $(date)" || echo "No changes"
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update stats [skip ci]" && git push)
