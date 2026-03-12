@@ -46,9 +46,19 @@ def rank_to_numeric(rank_string):
 def get_tier_styles(rank_string):
     """Returns a color and label based on the rank tier."""
     tier_colors = {
-        "Champion": "#db00ff", "Grandmaster": "#ff0000", "Master": "#ffa500",
-        "Diamond": "#b9f2ff", "Platinum": "#95e1d3", "Gold": "#ffd700",
-        "Silver": "#c0c0c0", "Bronze": "#cd7f32"
+        "Champion": "db00ff",      # No #
+        "Grandmaster": "ff0000",   # No #
+        "Master": "ffa500",        # No #
+        "Diamond": "b9f2ff",       # No #
+        "Platinum": "95e1d3",      # No #
+        "Gold": "ffd700",          # No #
+        "Silver": "c0c0c0",        # No #
+        "Bronze": "cd7f32"         # No #
+    }
+    for tier, color in tier_colors.items():
+        if tier in rank_string:
+            return color, f"Rank: {tier}"
+    return "333333", "Rank: Unranked"
     }
     for tier, color in tier_colors.items():
         if tier in rank_string:
