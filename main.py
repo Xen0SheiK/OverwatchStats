@@ -93,20 +93,13 @@ def run_tracker():
         with open(HISTORY_FILE, 'r') as f:
             history = json.load(f)
 
-    # 4. Calculate Visuals
+# 4. Calculate Visuals
     current_num = rank_to_numeric(current_rank)
     trend = get_trend_indicator(history, current_num)
     badge_color, badge_label = get_tier_styles(current_rank)
 
-    # 5. Update Badge JSON
-    with open(BADGE_FILE, 'w') as f:
-        json.dump({
-            "schemaVersion": 1,
-            "label": badge_label,
-            "message": f"{current_rank}{trend}",
-            "color": badge_color,
-            "style": "for-the-badge"
-        }, f, indent=4)
+    # 5. Update Badge JSON (REPLACED WITH FUNCTION CALL)
+    update_badge_json(current_rank, trend, badge_color, badge_label)
 
     # 6. Update History File
     history.append({
