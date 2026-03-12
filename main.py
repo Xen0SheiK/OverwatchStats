@@ -59,7 +59,7 @@ def get_tier_styles(rank_string):
         if tier in rank_string:
             return color, f"Rank: {tier}"
     return "333333", "Rank: Unranked"
-    }
+    
     for tier, color in tier_colors.items():
         if tier in rank_string:
             return color, f"Rank: {tier}"
