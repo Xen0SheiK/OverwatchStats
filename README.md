@@ -10,8 +10,8 @@ An automated data pipeline that tracks Overwatch 2 competitive ranks, generates 
 
 ## 🚀 Live Stats
 | Current Rank | Rank History |
-| :--- | :---: | ---: |
-![Overwatch Rank](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/PH4MInfoTech/OverwatchStats/main/badge.json?v=1)
+
+| [Overwatch Rank](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/PH4MInfoTech/OverwatchStats/main/badge.json?v=1)|
 | ![Rank Progression](https://raw.githubusercontent.com/PH4MInfoTech/OverwatchStats/main/rank_history.png) |
 
 ---
